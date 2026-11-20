@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
+import NavLinks from "./link/navlink";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,7 +25,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+       <header className="border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-black/80 backdrop-blur-md sticky top-0 z-50">
+          <nav className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+            
+            <span className="font-bold text-lg tracking-tight">PHOUDTHALY</span>
+
+           
+              <NavLinks />
+
+          </nav>
+        </header>
+  
+        {children}</body>
     </html>
   );
 }
